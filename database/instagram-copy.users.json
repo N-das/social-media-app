@@ -1,0 +1,172 @@
+[{
+  "_id": {
+    "$oid": "65bbaec92adc00d8986f5780"
+  },
+  "name": "Nitin Das",
+  "userName": "nitindas83",
+  "email": "nk121@gmail.com",
+  "password": "$2b$12$ZZEeC24VTx.mI7mJj158T.K/eslS1NwZ3FMh55FB0pG/ToqpExbpi",
+  "followers": [
+    {
+      "$oid": "65bbb01a2adc00d8986f57bb"
+    },
+    {
+      "$oid": "65bbb74b2adc00d8986f58d5"
+    }
+  ],
+  "following": [
+    {
+      "$oid": "65bbb74b2adc00d8986f58d5"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-02-01T14:46:33.037Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-01T15:38:59.226Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65bbb01a2adc00d8986f57bb"
+  },
+  "name": "krishjain",
+  "userName": "krish2002",
+  "email": "krish123@gmail.com",
+  "password": "$2b$12$3j4cZcbMCW2DJHJl0Ua0G.xUKtmsYzYiD77Deg2hkS6CH9crFC5EG",
+  "followers": [
+    {
+      "$oid": "65bbb1f32adc00d8986f5810"
+    },
+    {
+      "$oid": "65bbb74b2adc00d8986f58d5"
+    }
+  ],
+  "following": [
+    {
+      "$oid": "65bbaec92adc00d8986f5780"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-02-01T14:52:10.229Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-01T15:32:24.108Z"
+  },
+  "__v": 0,
+  "Photo": "http://res.cloudinary.com/knvmcloud/image/upload/v1706799202/pnp8phpdmtuvlmkylb5y.jpg"
+},
+{
+  "_id": {
+    "$oid": "65bbb1f32adc00d8986f5810"
+  },
+  "name": "manaas",
+  "userName": "manas_2004",
+  "email": "manas121@gmail.com",
+  "password": "$2b$12$ZaH/H9/VGGMtdeqwgxqsNepUc2jNithgF7wFp4w1GXoPufURzvM9a",
+  "followers": [
+    {
+      "$oid": "65bbb74b2adc00d8986f58d5"
+    }
+  ],
+  "following": [
+    {
+      "$oid": "65bbb01a2adc00d8986f57bb"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-02-01T15:00:03.281Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-01T15:28:02.715Z"
+  },
+  "__v": 0,
+  "Photo": "http://res.cloudinary.com/knvmcloud/image/upload/v1706800615/duty1dqyxdulwqyif4lt.avif"
+},
+{
+  "_id": {
+    "$oid": "65bbb74b2adc00d8986f58d5"
+  },
+  "name": "gurelina ",
+  "userName": "gurelina__",
+  "email": "fake@gmail.com",
+  "password": "$2b$12$Czm/4VBzG0QcoTJzs2u.wOfHq2vJ2T3y8FUln.jUdk5JrmJQCcHaS",
+  "followers": [
+    {
+      "$oid": "65bbaec92adc00d8986f5780"
+    },
+    {
+      "$oid": "65bbb74b2adc00d8986f58d5"
+    }
+  ],
+  "following": [
+    {
+      "$oid": "65bbb1f32adc00d8986f5810"
+    },
+    {
+      "$oid": "65bbb01a2adc00d8986f57bb"
+    },
+    {
+      "$oid": "65bbaec92adc00d8986f5780"
+    },
+    {
+      "$oid": "65bbb6552adc00d8986f58a7"
+    },
+    {
+      "$oid": "65bbb6552adc00d8986f58a7"
+    },
+    {
+      "$oid": "65bbbac82adc00d8986f59f2"
+    },
+    {
+      "$oid": "65bbb74b2adc00d8986f58d5"
+    }
+  ],
+  "createdAt": {
+    "$date": "2024-02-01T15:22:51.391Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-06T15:57:24.399Z"
+  },
+  "__v": 0,
+  "Photo": "http://res.cloudinary.com/knvmcloud/image/upload/v1706801279/vg9uwybfw8fq7pfc1gnf.avif"
+},
+{
+  "_id": {
+    "$oid": "65bde0ad5b8393f3cffb1d76"
+  },
+  "name": "Nitin Das",
+  "userName": "Nitin Das",
+  "email": "dasnitin224@gmail.com",
+  "password": "dasnitin224@gmail.com404752276702-b2ns027c0fin75hlb2e409h82vmh7fj8.apps.googleusercontent.com",
+  "Photo": "https://lh3.googleusercontent.com/a/ACg8ocKQ7ChjKhKvW-W7TQ2Pp5bQjLlR6XgxZVBdqwQ_iUPp=s96-c",
+  "followers": [],
+  "following": [],
+  "createdAt": {
+    "$date": "2024-02-03T06:43:57.549Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-03T06:43:57.549Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65bde156bf5988d57fd84b01"
+  },
+  "name": "Nitin Das",
+  "userName": "Nitin Das",
+  "email": "nitin.das.tykk@gmail.com",
+  "password": "nitin.das.tykk@gmail.com404752276702-b2ns027c0fin75hlb2e409h82vmh7fj8.apps.googleusercontent.com",
+  "Photo": "https://lh3.googleusercontent.com/a/ACg8ocJ645ncIVKDou_KO5d-xLd94dnWwmJC4d_5150iABvu=s96-c",
+  "followers": [],
+  "following": [],
+  "createdAt": {
+    "$date": "2024-02-03T06:46:46.069Z"
+  },
+  "updatedAt": {
+    "$date": "2024-02-03T06:46:46.069Z"
+  },
+  "__v": 0
+}]
