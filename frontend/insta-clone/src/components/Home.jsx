@@ -7,7 +7,6 @@ import { IoMdClose } from "react-icons/io";
 // import { FaRegComment } from "react-icons/fa";
 import { MdOutlineModeComment } from "react-icons/md";
 import { FaRegBookmark } from "react-icons/fa";
-import { FaBookmark } from "react-icons/fa";
 
 const Home = () => {
   let picLink = "https://cdn-icons-png.flaticon.com/128/847/847969.png";
@@ -38,56 +37,6 @@ const Home = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  const savedPost = (id) => {
-    fetch("http://localhost:5000/savedposts", {
-      method: "put",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer" + localStorage.getItem("jwt"),
-      },
-      body: JSON.stringify({
-        postId: id,
-      }),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        const newData = data.map((posts) => {
-          if (posts._id == result._id) {
-            return result;
-          } else {
-            return posts;
-          }
-        });
-        setData(newData);
-        console.log(result);
-      });
-  };
-
-  const unsavedPost = (id) => {
-    fetch("http://localhost:5000/unsavedPost", {
-      method: "put",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer" + localStorage.getItem("jwt"),
-      },
-      body: JSON.stringify({
-        postId: id,
-      }),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        const newData = data.map((posts) => {
-          if (posts._id == result._id) {
-            return result;
-          } else {
-            return posts;
-          }
-        });
-        setData(newData);
-        console.log(result);
-      });
-  };
-
   const likePost = (id) => {
     fetch("http://localhost:5000/like", {
       method: "put",
@@ -101,14 +50,9 @@ const Home = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        const newData = data.map((posts) => {
-          if (posts._id == result._id) {
-            return result;
-          } else {
-            return posts;
-          }
-        });
-        setData(newData);
+        setData((prevData) =>
+          prevData.map((post) => (post._id === result._id ? result : post))
+        );
         console.log(result);
       });
   };
@@ -126,14 +70,9 @@ const Home = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        const newData = data.map((posts) => {
-          if (posts._id == result._id) {
-            return result;
-          } else {
-            return posts;
-          }
-        });
-        setData(newData);
+        setData((prevData) =>
+          prevData.map((post) => (post._id === result._id ? result : post))
+        );
         console.log(result);
       });
   };
@@ -173,7 +112,7 @@ const Home = () => {
     } else {
       setShow(true);
       setItem(posts);
-      console.log(posts);
+      console.log(item);
     }
   };
 
@@ -190,6 +129,9 @@ const Home = () => {
             /> */}
                 <img
                   src={posts.postedBy.Photo ? posts.postedBy.Photo : picLink}
+                  // onDoubleClick={() => {
+                  //   likePost(posts._id);
+                  // }}
                   alt=""
                 />
               </div>
@@ -226,31 +168,19 @@ const Home = () => {
                   favorite
                 </span>
               )}
-
+              {/* <span
+                id="like-on-center"
+                className="material-symbols-outlined material-symbols-outlined-red"
+              >
+                favorite
+              </span> */}
               <MdOutlineModeComment
                 id="message"
                 onClick={() => {
                   viewComment(posts);
                 }}
               />
-              {posts.savedPosts.includes(
-                JSON.parse(localStorage.getItem("user"))._id
-              ) ? (
-                <FaRegBookmark
-                  id="bookMark"
-                  onClick={() => {
-                    unsavedPost(posts._id);
-                  }}
-                />
-              ) : (
-                <FaBookmark
-                  id="bookMark"
-                  onClick={() => {
-                    savedPost(posts._id);
-                  }}
-                />
-              )}
-
+              <FaRegBookmark id="bookMark" />
               <p id="like">{posts.likes.length} likes</p>
               <p>{posts.body}</p>
               <p
@@ -297,7 +227,10 @@ const Home = () => {
             <div className="details">
               <div className="card-header">
                 <div className="card-pic">
-                  <img src={item.postedBy.Photo} alt="" />
+                  <img
+                    src={item.postedBy.Photo ? item.postedBy.Photo : picLink}
+                    alt=""
+                  />
                 </div>
                 <h5>{item.postedBy.name}</h5>
               </div>
@@ -305,81 +238,23 @@ const Home = () => {
                 {item.comments.map((comment) => {
                   return (
                     <p className="add-comment">
-                      <span
-                        className="user-comment"
-                        style={{ fontWeight: "bolder", margin: "5px" }}
-                      >
-                        {comment.postedBy.name}
-                      </span>
-
-                      <span className="user-comment-text">
-                        {comment.comment}
-                      </span>
-                    </p>
-                  );
-                })}
-              </div>
-              <div className="card-content">
-                <p id="like">{item.likes.length} likes</p>
-                <p>{item.body}</p>
-              </div>
-              <div className="add-comment">
-                <span className="material-symbols-outlined">mood</span>
-                <input
-                  type="text"
-                  placeholder="Add a comment"
-                  value={comment}
-                  onChange={(e) => {
-                    setComment(e.target.value);
-                  }}
-                />
-                <button
-                  type="button"
-                  className="btn btn-primary post-comment"
-                  onClick={() => {
-                    makeComment(comment, item._id);
-                    viewComment();
-                  }}
-                >
-                  Post
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="close-comment">
-            {/* <IoClose className="c" /> */}
-            <IoMdClose className="c" onClick={() => setShow(false)} />
-            {/* alternate {()=>viewComment()} */}
-          </div>
-        </div>
-      )}
-
-      {show && (
-        <div className="showComment">
-          <div className="container">
-            <div className="postPic">
-              <img src={item.photo} alt="" />
-            </div>
-            <div className="details">
-              <div className="card-header">
-                <div className="card-pic">
-                  <img src={item.postedBy.Photo} alt="" />
-                </div>
-                <h3>{item.postedBy.name}</h3>
-              </div>
-              <div className="comment-section">
-                {item.comments.map((comment) => {
-                  return (
-                    <p className="add-comment">
                       <div className="card-pic">
-                        <img src={comment.postedBy.Photo} alt="" />
+                        <img
+                          src={
+                            comment.postedBy.Photo
+                              ? comment.postedBy.Photo
+                              : picLink
+                          }
+                          alt=""
+                        />
                       </div>
-                      <span
+                      <Link
+                        to={`/profile/${comment.postedBy._id}`}
                         className="user-comment"
                         style={{ fontWeight: "bolder", margin: "5px" }}
                       >
                         {comment.postedBy.name}
-                      </span>
+                      </Link>
 
                       <span className="user-comment-text">
                         {comment.comment}

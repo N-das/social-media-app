@@ -229,10 +229,7 @@ const MyFollowingPost = () => {
             <div className="details">
               <div className="card-header">
                 <div className="card-pic">
-                  <img
-                    src="https://images.unsplash.com/photo-1541576980233-97577392db9a?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTJ8NzYwODI3NzR8fGVufDB8fHx8fA%3D%3D"
-                    alt=""
-                  />
+                  <img src={item.postedBy.Photo} alt="" />
                 </div>
                 <h5>{item.postedBy.name}</h5>
               </div>

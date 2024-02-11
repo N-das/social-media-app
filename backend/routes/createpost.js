@@ -115,6 +115,10 @@ router.put("/like", requireLogin, (req, res) => {
     //     res.json(result);
     //   }
     // });
+    // .populate({
+    //   path: "likes",
+    //   select: "name Photo",
+    // })
     .populate("postedBy", "_id name Photo")
     .exec()
     .then((result) => {
@@ -135,6 +139,10 @@ router.put("/unlike", requireLogin, (req, res) => {
       new: true,
     }
   )
+    .populate({
+      path: "likes",
+      select: "name Photo",
+    })
     .populate("postedBy", "_id name Photo")
     .exec()
     .then((result) => {

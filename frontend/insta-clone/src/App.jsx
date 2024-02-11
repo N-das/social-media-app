@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import "./App.css";
 import "./style/Navbar.css";
 import Navbar from "./components/Navbar";
@@ -15,14 +15,26 @@ import Model from "./components/Model";
 import UserProfile from "./components/UserProfile";
 import MyFollowingPost from "./components/MyFollowingPost";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import Loader from "./components/Loader";
 
 // import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [userLogin, setUserLogin] = useState(false);
   const [model, setModel] = useState(false);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    // Simulate loading delay (Remove this in your actual implementation)
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // Adjust as needed
+
+    return () => clearTimeout(timeout);
+  }, []);
+  // useEffect
   return (
     <BrowserRouter>
       <div className="App">
+        <Loader loading={loading} />
         <GoogleOAuthProvider clientId="404752276702-b2ns027c0fin75hlb2e409h82vmh7fj8.apps.googleusercontent.com">
           <LoginContext.Provider value={{ setUserLogin, setModel }}>
             <Navbar login={userLogin} />
