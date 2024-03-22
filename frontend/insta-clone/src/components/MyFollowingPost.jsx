@@ -7,6 +7,9 @@ import { IoMdClose } from "react-icons/io";
 // import { FaRegComment } from "react-icons/fa";
 import { MdOutlineModeComment } from "react-icons/md";
 import { FaRegBookmark } from "react-icons/fa";
+import { RxGrid } from "react-icons/rx";
+// import { SiCodesandbox } from "react-icons/si";
+import { MdCheckBoxOutlineBlank } from "react-icons/md";
 
 const MyFollowingPost = () => {
   let picLink = "https://cdn-icons-png.flaticon.com/128/847/847969.png";
@@ -15,6 +18,7 @@ const MyFollowingPost = () => {
   const [comment, setComment] = useState([]);
   const [show, setShow] = useState(false);
   const [item, setItem] = useState([]);
+  const [gridView, setGridView] = useState(true);
 
   const notifyA = (err) => toast.error(err);
   const notifyB = (err) => toast.success(err);
@@ -126,8 +130,15 @@ const MyFollowingPost = () => {
     }
   };
 
+  const toggleView = () => {
+    setGridView(!gridView);
+  };
+
   return (
-    <div className="home">
+    <div className={gridView ? "home grid-view" : "home"}>
+      <button className="grid-btn" onClick={toggleView}>
+        {gridView ? <RxGrid /> : <MdCheckBoxOutlineBlank />}
+      </button>
       {data.map((posts) => {
         return (
           <div className="card">

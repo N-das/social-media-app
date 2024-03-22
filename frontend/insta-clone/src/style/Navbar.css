@@ -3,35 +3,45 @@ img{
     /* margin-top: 5px; */
     object-fit: contain;
     cursor: pointer;
+    margin-top: 10px;
+
+    /* text-align: center; */
 }
 .main{
-    padding-bottom: 85px;
+    padding-bottom: 65px;
 }
 .navbar{
     display: flex;
     justify-content: space-around;
-
-    box-shadow: 1px 5px 5px #e0dcdc;
+    /* box-shadow: 1px 5px 5px #e0dcdc; */
+    padding: 20 20px;
+    color: white;
     position: fixed;
     width: 100%;
     overflow: hidden;
     width: 100%;
     /* position: fixed; */
+    align-items: center;
     top: 0;
     left: 0;
     z-index: 1000;
-    background: #fff;
+     background-color: rgba(255, 255, 255, 0.183);
+    /* background: #000; */
 }
 .navbar-list{
     display: flex;
     list-style: none;
     align-items: baseline;
+   
+    /* justify-content: space-around; */
 }
 .navbar-list li{
     padding: 0px 20px;
-    color: #535151;
-    font-weight: 500;
-    /* font-size: 1.6rem; */
+    /* color: #535151; */
+    color: #000000c8;
+    font-weight: 600;
+    font-size: 2.0rem;
+    margin: 0 8px;
 }
 .navbar-mobile{
     display: none;
@@ -64,7 +74,7 @@ a{
 }
 
 @media screen and (max-width:800px) {
-   
+    
     .navbar-list{
         display: none;
     }
@@ -83,9 +93,9 @@ a{
     .navbar {
         width: 100%;
         /* position: relative; */
-        
-        background-color: #fff;
-        box-shadow: 0px -2px 5px #e0dcdc;
+     
+        background-color: rgba(255, 255, 255, 0.183);
+        /* box-shadow: 0px -2px 5px #e0dcdc; */
     }
     .navbar ul{
         margin: 0;
@@ -100,18 +110,26 @@ a{
         padding: 0 10px;
         color: #262424e4;
     }
-    .navbar img{
-        /* position: relative; */
-        width: 200px;
-        float: left;
-    }
+    
     .main{
         padding-bottom: 50px;
+    }
+    .primaryBtn{
+        display: none;
+    }
+    .navbar img{
+        /* height: 100px; */
+       display: flex;
+       justify-content: center;
+        width: 150px;
+        margin: 10px auto;
+        object-fit: cover;
     }
 }
 @media screen and (max-width:380px){
     .navbar img{
         /* height: 100px; */
+        text-align: center;
         width: 150px;
         margin: 2px;
         object-fit: cover;
@@ -124,5 +142,157 @@ a{
         font-size: 1.7rem;
         padding: 0 10px;
     }
+    .primaryBtn{
+        display: none;
+    }
 
 } 
+/* #insta-logo{
+    font-size: 2.4rem;
+     cursor: pointer;
+     font-weight: bolder;
+     font-style:italic;
+ }
+ .main{
+     padding-bottom: 65px;
+ }
+ .navbar{
+     display: flex;
+     
+     flex-direction: column;
+    
+     position: fixed;
+   
+     overflow: hidden;
+    
+     top: 0;
+     left: 0;
+     z-index: 1000;
+     padding: 10px 50px;
+     width: 200px;
+     height: 100%;
+     border-right: 1px solid rgba(141, 138, 138, 0.508);
+    
+ }
+ .flex-nav{
+     display: flex;
+     align-items:center;
+    
+ }
+ .nav{
+     margin: 0 5px;
+     font-size: 2.2rem;
+     margin-top: 3px;
+ }
+ .navbar-list{
+     display: flex;
+     flex-direction: column;
+    
+     list-style: none;
+     align-items: baseline;
+     padding: 50px 10px;
+     margin-top: -30px;
+     position: relative;
+  
+ }
+ .navbar-list li{
+     padding: 19px;
+     color: #535151;
+     font-weight: 500;
+ 
+ }
+ .navbar-mobile{
+     display: none;
+ }
+ a{
+     text-decoration: none;
+     color: black;
+     font-size: 25px;
+ }
+ .signup{
+     text-align: center;
+ }
+ .signup{
+     background-image: "https://lotofcolor.com/wp-content/uploads/2020/11/1920x1080.jpg";
+ }
+ .primaryBtn{
+     cursor: pointer;
+     font-weight: bolder;
+     font-size: 1.1rem;
+     padding: 12px 18px;
+     border: none;
+     color: #fff;
+     background-color: #f41229;
+     border-radius: 5px;
+     transition: all 0.25s ease;
+     position: absolute;
+     bottom: -160px;
+     left: 40px;
+ }
+ .primaryBtn:hover{
+     transform: translateY(-5px);
+
+ }
+ 
+ @media screen and (max-width:800px) {
+    
+     .navbar-list{
+         display: none;
+     }
+     .navbar-mobile{
+         width: 100%;
+         display: flex;
+         justify-content: space-between;
+         position: fixed;
+         align-items: baseline;
+         bottom: 0;
+         left: 0;
+         border-top: 1px solid rgba(0, 0, 0, 0.319);
+         background-color: #fff;
+        
+     }
+     .navbar {
+         width: 100%;
+       
+         background-color: #fff;
+         box-shadow: 0px -2px 5px #e0dcdc;
+     }
+     .navbar ul{
+         margin: 0;
+         padding: 10px 0px;
+         list-style: none;
+         color: #fff;
+         
+     }
+     .navbar ul li{
+       
+         font-size: 2rem;
+         padding: 0 10px;
+         color: #262424e4;
+     }
+     .navbar img{
+      
+         width: 200px;
+         float: left;
+     }
+     .main{
+         padding-bottom: 50px;
+     }
+ }
+ @media screen and (max-width:380px){
+     .navbar img{
+     
+         width: 150px;
+         margin: 2px;
+         object-fit: cover;
+     }
+     .main{
+         padding-bottom: 30px;
+     }
+     .navbar ul li{
+       
+         font-size: 1.7rem;
+         padding: 0 10px;
+     }
+ 
+ }  */

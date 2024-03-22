@@ -1,10 +1,33 @@
 .card{
     width: 500px;
     height: max-content;
-    margin: 25px auto;
-    border: 1px solid rgb(207, 195, 195);
+    margin: 5px auto;
+    border: 1px solid rgba(207, 195, 195, 0.273);
     border-radius: 4px;
     /* margin: auto 20px; */
+}
+.grid-card{
+    width: 500px;
+    height: max-content;
+    margin: 5px auto;
+    border: 1px solid rgba(207, 195, 195, 0.273);
+    border-radius: 4px;
+    display: flex;
+    /* justify-content: space-around; */
+}
+.home{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    /* margin: 0 200px; */
+    max-width: 1030px;
+
+    /* gap:-500px */
+}
+.grid-view{
+    display: flex;
+    flex-direction: column;
+   
 }
 
 .card-header{
@@ -35,7 +58,8 @@
     text-align: left;
     line-height: 4px;
     padding: 10px;
-    border-bottom: 1px solid rgb(207, 195, 195);
+    /* color: black; */
+    border-bottom: 1px solid rgba(207, 195, 195, 0.247);
 }
 #like{
     padding-top: 12px;
@@ -49,15 +73,19 @@
     outline: none;
     border: none;
     padding: 10px;
+    /* background-color: black; */
+    color: #fff;
 }
 .add-comment .post-comment{
     padding: 8px 12px;
     background-color: #0d6efd;
     border: none;
-    color: #ffff;
+    /* color: #000; */
+    /* color: #ffff; */
     border-radius: 5px;
     margin: 4px 2px;
     cursor: pointer;
+    color: #fff;
 }
 
 .material-symbols-outlined-red {
@@ -91,6 +119,7 @@
     background-color: rgba(20, 20, 19, 0.441);
     z-index: 1000;
     /* display: none; */
+    /* color: white; */
 }
 .showComment .container{
     display: flex;
@@ -166,6 +195,21 @@
     left: 50%;
     transform: translate(-50%,-50%);
     font-size: 5rem;
+}
+.grid-btn{
+    position: fixed;
+    font-size: 1.9rem;
+    right: 0;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+    padding: 5px;
+    gap: 10px;
+    color: #625c5c;
+    cursor: pointer;
+    border: none;
+    background: none;
 }
 @media screen and (max-width:800px){
     .postPic img{

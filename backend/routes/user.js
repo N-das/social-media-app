@@ -162,4 +162,18 @@ router.put("/uploadProfilePic", requireLogin, (req, res) => {
     });
 });
 
+// router.get("/search-users", requireLogin, async (req, res) => {
+//   const { query } = req.query;
+//   try {
+//     const users = await USER.find({
+//       userName: { $regex: query, $options: "i" }
+
+//     });
+//     res.json(users)
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json({ message: "Internal server error" });
+//   }
+// });
+
 module.exports = router;
