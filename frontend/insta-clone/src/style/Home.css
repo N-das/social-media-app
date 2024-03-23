@@ -1,33 +1,51 @@
 .card{
     width: 500px;
+    /* height: 485px; */
     height: max-content;
-    margin: 5px auto;
-    border: 1px solid rgba(207, 195, 195, 0.273);
+    margin: 70px auto;
+    border: 1px solid rgba(207, 195, 195, 0.501);
     border-radius: 4px;
     /* margin: auto 20px; */
+    margin-bottom: 0;
 }
 .grid-card{
     width: 500px;
-    height: max-content;
-    margin: 5px auto;
+    margin: 70px auto;
     border: 1px solid rgba(207, 195, 195, 0.273);
     border-radius: 4px;
     display: flex;
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, 34rem); */
+    margin-bottom: 0;
+    /* line-height: -20px; */
     /* justify-content: space-around; */
 }
 .home{
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    margin: auto;
+    margin: auto; */
     /* margin: 0 200px; */
-    max-width: 1030px;
-
+    /* max-width: 1080px;
+    gap: 1rem; */
+    /* border: 1px solid rgba(207, 195, 195, 0.273); */
+    /* max-height: fit-content; */
     /* gap:-500px */
+    /* line-height: 20px; */
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: -50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 34rem);
+    align-items: flex-start;
+    gap:0;
+    justify-content: center;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px; */
+    /* padding:2rem; */
 }
 .grid-view{
     display: flex;
     flex-direction: column;
-   
+    /* height: 200px; */
 }
 
 .card-header{
@@ -42,7 +60,9 @@
     cursor: pointer;
 }
 .card-pic{
-    padding: 8px;
+    padding-left: 5px;
+    gap: 5px;
+    display: flex;
 }
 .card-pic img{
     width: 50px;
@@ -50,31 +70,46 @@
     object-fit: cover;
     border-radius: 100px;
 }
+.like-comment{
+    display: flex;
+    justify-content: space-around;
+    gap: 14rem;
+    align-items: center;
+    /* float: right; */
+}
 .card-image img{
     width: 500px;
-    height: 400px;
+    height: 470px;
+    object-fit: cover;
 }
 .card-content{
-    text-align: left;
+    /* text-align: left; */
+    /* float: right; */
     line-height: 4px;
     padding: 10px;
+    display: flex;
     /* color: black; */
-    border-bottom: 1px solid rgba(207, 195, 195, 0.247);
+    /* border-bottom: 1px solid rgba(207, 195, 195, 0.247); */
 }
 #like{
-    padding-top: 12px;
+    padding-right: 5px;
+    color: black;
+    font-weight: bold;
 }
 .add-comment{
     display: flex;
     align-items: center;
+    /* border: 1px solid rgba(207, 195, 195, 0.483); */
 }
 .add-comment input{
     margin: 0;
     outline: none;
     border: none;
     padding: 10px;
+    color: black;
+    /* border: 1px solid rgba(207, 195, 195, 0.985); */
     /* background-color: black; */
-    color: #fff;
+    /* color: #fff; */
 }
 .add-comment .post-comment{
     padding: 8px 12px;

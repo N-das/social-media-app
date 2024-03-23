@@ -8,23 +8,25 @@ img{
     /* text-align: center; */
 }
 .main{
-    padding-bottom: 65px;
+    padding-bottom: 85px;
+    /* height: 500px; */
 }
 .navbar{
     display: flex;
     justify-content: space-around;
     /* box-shadow: 1px 5px 5px #e0dcdc; */
-    padding: 20 20px;
+    /* padding: 20 10px; */
     color: white;
     position: fixed;
     width: 100%;
     overflow: hidden;
-    width: 100%;
     /* position: fixed; */
     align-items: center;
     top: 0;
     left: 0;
     z-index: 1000;
+    /* padding-bottom: 50px; */
+    line-height: 20px;
      background-color: rgba(255, 255, 255, 0.183);
     /* background: #000; */
 }
@@ -32,7 +34,7 @@ img{
     display: flex;
     list-style: none;
     align-items: baseline;
-   
+    
     /* justify-content: space-around; */
 }
 .navbar-list li{

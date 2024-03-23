@@ -142,90 +142,119 @@ const MyFollowingPost = () => {
       {data.map((posts) => {
         return (
           <div className="card">
-            <div className="card-header">
-              <div className="card-pic">
-                {/* <img
-              src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?q=80&w=1966&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt=""
-            /> */}
+            <div>
+              <div className="card-image">
                 <img
-                  src={posts.postedBy.Photo ? posts.postedBy.Photo : picLink}
+                  src={posts.photo}
+                  alt=""
+                  onClick={() => {
+                    viewComment(posts);
+                  }}
                 />
-                {/* {console.log(posts.postedBy.Photo)}
-                {console.log(posts.postedBy.name)} */}
               </div>
-              <h5>
-                <Link to={`/profile/${posts.postedBy._id}`}>
-                  {" "}
-                  {posts.postedBy.name}
-                </Link>
-              </h5>
-            </div>
-            <div className="card-image">
-              <img src={posts.photo} alt="" />
-            </div>
-            <div className="card-content">
-              {posts.likes.includes(
-                JSON.parse(localStorage.getItem("user"))._id
-              ) ? (
-                <span
-                  className="material-symbols-outlined material-symbols-outlined-red"
-                  onClick={() => {
-                    unlikePost(posts._id);
-                  }}
-                >
-                  favorite
-                </span>
-              ) : (
-                <span
-                  className="material-symbols-outlined"
-                  id="fav"
-                  onClick={() => {
-                    likePost(posts._id);
-                  }}
-                >
-                  favorite
-                </span>
-              )}
-              <MdOutlineModeComment
-                id="message"
-                onClick={() => {
-                  viewComment(posts);
-                }}
-              />
-              <FaRegBookmark id="bookMark" />
-              <p id="like">{posts.likes.length} likes</p>
-              <p>{posts.body}</p>
-              <p
-                style={{ fontWeight: "bolder", cursor: "pointer" }}
-                onClick={() => {
-                  viewComment(posts);
-                }}
-              >
-                {" "}
-                view all comments
-              </p>
-            </div>
+              <div className="card-header">
+                <div className="like-comment">
+                  <div className="card-pic">
+                    {/* <img
+                      src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?q=80&w=1966&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      alt=""
+                      /> */}
+                    <img
+                      src={
+                        posts.postedBy.Photo ? posts.postedBy.Photo : picLink
+                      }
+                      // onDoubleClick={() => {
+                      //   likePost(posts._id);
+                      // }}
+                      alt=""
+                    />
 
-            <div className="add-comment">
-              <span className="material-symbols-outlined">mood</span>
-              <input
-                type="text"
-                placeholder="Add a comment"
-                value={comment}
-                onChange={(e) => {
-                  setComment(e.target.value);
-                }}
-              />
-              <button
-                type="button"
-                className="btn btn-primary post-comment"
-                onClick={() => {
-                  makeComment(comment, posts._id);
-                }}
-              >
-                Post
-              </button>
+                    <h5>
+                      <Link
+                        to={`/profile/${posts.postedBy._id}`}
+                        style={{ color: "#000" }}
+                      >
+                        {" "}
+                        {posts.postedBy.name}
+                      </Link>
+                    </h5>
+                  </div>
+                  <div className="card-content">
+                    <p id="like">{posts.likes.length} likes</p>
+                    {posts.likes.includes(
+                      JSON.parse(localStorage.getItem("user"))._id
+                    ) ? (
+                      <span
+                        className="material-symbols-outlined material-symbols-outlined-red"
+                        onClick={() => {
+                          unlikePost(posts._id);
+                        }}
+                      >
+                        favorite
+                      </span>
+                    ) : (
+                      <span
+                        className="material-symbols-outlined"
+                        id="fav"
+                        onClick={() => {
+                          likePost(posts._id);
+                        }}
+                      >
+                        favorite
+                      </span>
+                    )}
+                    {/* <span
+                  id="like-on-center"
+                  className="material-symbols-outlined material-symbols-outlined-red"
+                >
+                  favorite
+                </span> */}
+                    <MdOutlineModeComment
+                      id="message"
+                      onClick={() => {
+                        viewComment(posts);
+                      }}
+                    />
+                    {/* <FaRegBookmark id="bookMark" /> */}
+
+                    {/* <p
+                      style={{ fontWeight: "bolder", cursor: "pointer" }}
+                      onClick={() => {
+                        viewComment(posts);
+                      }}
+                    >
+                      {" "}
+                      view all comments
+                    </p> */}
+                  </div>
+                </div>
+              </div>
+              <div className="add-comment">
+                <span className="material-symbols-outlined">mood</span>
+                <input
+                  type="text"
+                  placeholder="Add a comment"
+                  value={comment}
+                  onChange={(e) => {
+                    setComment(e.target.value);
+                  }}
+                />
+                <button
+                  type="button"
+                  className="btn btn-primary post-comment"
+                  onClick={() => {
+                    if (comment.trim() !== "") {
+                      // Check if comment is not empty or only contains whitespace
+                      makeComment(comment, posts._id);
+                      setComment(""); // Clear the input field after posting
+                    } else {
+                      notifyA("Please enter a comment before posting."); // Show an alert if comment is empty
+                    }
+                  }}
+                >
+                  Post
+                </button>
+              </div>
             </div>
           </div>
         );
