@@ -8,17 +8,43 @@
     /* margin: auto 20px; */
     margin-bottom: 0;
 }
+.card-following{
+    /* width: 50px; */
+    /* overflow: hidden; */
+    /* height: 485px; */
+    /* height: max-content; */
+    margin: 70px auto;
+    /* border: 1px solid rgba(207, 195, 195, 0.501); */
+    border-radius: 4px;
+    /* margin: auto 20px; */
+    margin-bottom: -170px;
+}
 .grid-card{
     width: 500px;
     margin: 70px auto;
     border: 1px solid rgba(207, 195, 195, 0.273);
     border-radius: 4px;
     display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    /* margin: auto; */
     /* display: grid;
     grid-template-columns: repeat(auto-fit, 34rem); */
     margin-bottom: 0;
     /* line-height: -20px; */
     /* justify-content: space-around; */
+}
+.home-following{
+    /* max-width: 1800px; */
+    width: 1200px;
+    margin: auto;
+    /* margin-bottom: 100px;  */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 19rem);
+    align-items: flex-start;
+    gap:99px;
+    justify-content: center;
+    
 }
 .home{
     /* display: flex;
@@ -45,7 +71,12 @@
 .grid-view{
     display: flex;
     flex-direction: column;
+    /* justify-content: center; */
     /* height: 200px; */
+}
+.grid-view-following{
+    display: flex;
+    flex-direction: column;
 }
 
 .card-header{
@@ -81,20 +112,35 @@
     width: 500px;
     height: 470px;
     object-fit: cover;
+    margin-top: 0px;
+}
+.card-image-following img{
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    margin-top: 0px;
 }
 .card-content{
     /* text-align: left; */
     /* float: right; */
     line-height: 4px;
-    padding: 10px;
+    /* padding: 10px; */
     display: flex;
+    align-items: center;
+    /* justify-content: flex-end; */
     /* color: black; */
     /* border-bottom: 1px solid rgba(207, 195, 195, 0.247); */
 }
 #like{
-    padding-right: 5px;
+    /* display: inline-block; */
+    padding-right: 4px;
+    display: flex;
+    gap: 0.2rem;
+    line-height: 2px;
     color: black;
     font-weight: bold;
+    font-size: 19px;
+    /* word-spacing: 20px; */
 }
 .add-comment{
     display: flex;
@@ -246,6 +292,13 @@
     border: none;
     background: none;
 }
+@media screen and (max-width:1025px) {
+    .postPic img{
+       display: none;
+    }
+    
+   
+}
 @media screen and (max-width:800px){
     .postPic img{
        display: none;
@@ -255,8 +308,25 @@
         position: absolute;
         transform: translateY(-50%,-50%);
     }
+    .grid-btn{
+    position: fixed;
+    font-size: 2.1rem;
+    right: 0;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+    padding: 5px;
+    gap: 10px;
+    color: #040303b6;
+    cursor: pointer;
+    border: none;
+    /* background-color: #fcfdfe; */
+    background: none;
+}
 }
 @media screen and (max-width:430px){
+
     .showComment .container{
         /* margin-top: 60px; */
         position: absolute;
@@ -264,5 +334,20 @@
     }
     .card{
         margin-left: -9px;
+    }
+    .grid-card{
+        width: 500px;
+        margin: 70px 15px;
+        border: 1px solid rgba(207, 195, 195, 0.273);
+        border-radius: 4px;
+        display: flex;
+        /* flex-wrap: wrap; */
+        justify-content: center;
+        /* margin: auto; */
+        /* display: grid;
+        grid-template-columns: repeat(auto-fit, 34rem); */
+        margin-bottom: 0;
+        /* line-height: -20px; */
+        /* justify-content: space-around; */
     }
 }

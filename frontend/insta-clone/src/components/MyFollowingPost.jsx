@@ -135,15 +135,15 @@ const MyFollowingPost = () => {
   };
 
   return (
-    <div className={gridView ? "home grid-view" : "home"}>
-      <button className="grid-btn" onClick={toggleView}>
+    <div className="home-following">
+      {/* <button className="grid-btn" onClick={toggleView}>
         {gridView ? <RxGrid /> : <MdCheckBoxOutlineBlank />}
-      </button>
+      </button> */}
       {data.map((posts) => {
         return (
-          <div className="card">
+          <div className="card-following">
             <div>
-              <div className="card-image">
+              <div className="card-image-following">
                 <img
                   src={posts.photo}
                   alt=""
@@ -152,20 +152,19 @@ const MyFollowingPost = () => {
                   }}
                 />
               </div>
-              <div className="card-header">
-                <div className="like-comment">
-                  <div className="card-pic">
-                    {/* <img
+              {/* <img
                       src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?q=80&w=1966&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt=""
                       /> */}
+              {/* <div className="card-header"> */}
+              {/* <div className="like-comment"> */}
+              {/* <div className="card-pic">
                     <img
                       src={
                         posts.postedBy.Photo ? posts.postedBy.Photo : picLink
                       }
-                      // onDoubleClick={() => {
-                      //   likePost(posts._id);
-                      // }}
+                   
+                    
                       alt=""
                     />
 
@@ -178,8 +177,8 @@ const MyFollowingPost = () => {
                         {posts.postedBy.name}
                       </Link>
                     </h5>
-                  </div>
-                  <div className="card-content">
+                  </div> */}
+              {/* <div className="card-content">
                     <p id="like">{posts.likes.length} likes</p>
                     {posts.likes.includes(
                       JSON.parse(localStorage.getItem("user"))._id
@@ -203,33 +202,18 @@ const MyFollowingPost = () => {
                         favorite
                       </span>
                     )}
-                    {/* <span
-                  id="like-on-center"
-                  className="material-symbols-outlined material-symbols-outlined-red"
-                >
-                  favorite
-                </span> */}
+                  
                     <MdOutlineModeComment
                       id="message"
                       onClick={() => {
                         viewComment(posts);
                       }}
                     />
-                    {/* <FaRegBookmark id="bookMark" /> */}
+                  </div> */}
+              {/* </div> */}
+              {/* </div> */}
 
-                    {/* <p
-                      style={{ fontWeight: "bolder", cursor: "pointer" }}
-                      onClick={() => {
-                        viewComment(posts);
-                      }}
-                    >
-                      {" "}
-                      view all comments
-                    </p> */}
-                  </div>
-                </div>
-              </div>
-              <div className="add-comment">
+              {/* <div className="add-comment">
                 <span className="material-symbols-outlined">mood</span>
                 <input
                   type="text"
@@ -254,7 +238,7 @@ const MyFollowingPost = () => {
                 >
                   Post
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         );

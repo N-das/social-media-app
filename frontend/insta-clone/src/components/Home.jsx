@@ -168,7 +168,7 @@ const Home = () => {
       {data.map((posts) => {
         return (
           <div className={gridView ? "card" : "card grid-card"}>
-            <div>
+            <div className="scroll-effect">
               <div className="card-image">
                 <img
                   src={posts.photo}
@@ -206,7 +206,9 @@ const Home = () => {
                     </h5>
                   </div>
                   <div className="card-content">
-                    <p id="like">{posts.likes.length} likes</p>
+                    <p id="like">
+                      <span> {posts.likes.length}</span> <span>likes</span>
+                    </p>
                     {posts.likes.includes(
                       JSON.parse(localStorage.getItem("user"))._id
                     ) ? (
