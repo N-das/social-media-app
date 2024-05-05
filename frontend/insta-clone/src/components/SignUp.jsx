@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import logo from "../images/Logo.png";
+import logo from "../images/Brand.png";
 import "../style/Signup.css";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";

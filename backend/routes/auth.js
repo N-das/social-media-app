@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { jwt_secret } = require("../keys");
 const requireLogin = require("../middleware/requireLogin");
+const nodemailer = require("nodemailer");
 
 router.get("/", (req, res) => {
   res.send("hello");
@@ -119,6 +120,16 @@ router.post("/googleLogin", (req, res) => {
       // console.log(savedUser);
     });
   }
+});
+
+router.post("/forget-password", (req, res) => {
+  const { email } = req.body;
+  USER.findOne({ email: email }).then((user) => {
+    if (!user) {
+      return res.status(422).json({ error: "Invalid email" });
+    }
+    const token = jwt.sign({ _id: user.id }, jwt_secret, { expiresIn: "1d" });
+  });
 });
 
 module.exports = router;

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import "../style/Navbar.css";
-import Logo from "../images/Logo.png";
+import Logo from "../images/Brand.png";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginContext } from "../context/LoginContext";
 import { GoHomeFill } from "react-icons/go";
@@ -141,7 +141,7 @@ const Navbar = ({ login }) => {
       <div className="navbar">
         <img
           src={Logo}
-          id="insta-logo"
+          id="logo"
           alt=""
           onClick={() => {
             navigate("/");

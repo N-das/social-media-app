@@ -1,4 +1,5 @@
 .signup{
+    /* background-image: url("https://c4.wallpaperflare.com/wallpaper/314/346/458/simple-background-blue-texture-textured-wallpaper-thumb.jpg"); */
     background-image: url("../images/SignupImage.png");
     background-size: cover;
     flex: 1;
@@ -13,9 +14,12 @@
     border-radius: 6px;
 }
 .signup-Logo{
-    width: 200px;
+    /* width: 200px;
     object-fit: contain;
-    padding: 10px 0px;
+    padding: 10px 0px; */
+    width: 200px;
+    height: 100px;
+    object-fit: cover;
 }
 .box{
     color: black;

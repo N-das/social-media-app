@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "../style/Createpost.css";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Logo from "../images/Brand.png";
 
 const Createpost = () => {
   const [body, setBody] = useState("");
@@ -9,7 +10,6 @@ const Createpost = () => {
   const [url, setUrl] = useState("");
   const navigate = useNavigate();
   const hiddenFileInput = useRef(null);
-
   const onClick = () => {
     hiddenFileInput.current.click();
     // let load = document.getElementById("upload-btn");
@@ -85,7 +85,7 @@ const Createpost = () => {
         <div className="main-div">
           <img
             id="output"
-            src="https://lh3.googleusercontent.com/EbXw8rOdYxOGdXEFjgNP8lh-YAuUxwhOAe2jhrz3sgqvPeMac6a6tHvT35V6YMbyNvkZL4R_a2hcYBrtfUhLvhf-N2X3OB9cvH4uMw=w1064-v0"
+            src={Logo} // src="https://lh3.googleusercontent.com/EbXw8rOdYxOGdXEFjgNP8lh-YAuUxwhOAe2jhrz3sgqvPeMac6a6tHvT35V6YMbyNvkZL4R_a2hcYBrtfUhLvhf-N2X3OB9cvH4uMw=w1064-v0"
           />
           <input
             type="file"

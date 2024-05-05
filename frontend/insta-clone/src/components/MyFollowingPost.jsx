@@ -255,7 +255,16 @@ const MyFollowingPost = () => {
                 <div className="card-pic">
                   <img src={item.postedBy.Photo} alt="" />
                 </div>
-                <h5>{item.postedBy.name}</h5>
+                <h5>
+                  {" "}
+                  <Link
+                    to={`/profile/${item.postedBy._id}`}
+                    style={{ color: "#000" }}
+                  >
+                    {" "}
+                    {item.postedBy.name}
+                  </Link>
+                </h5>
               </div>
               <div className="comment-section">
                 {item.comments.map((comment) => {

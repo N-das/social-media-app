@@ -19,6 +19,8 @@ const Home = () => {
   const [show, setShow] = useState(false);
   const [item, setItem] = useState([]);
   const [gridView, setGridView] = useState(true);
+  let limit = 10;
+  // let skip = 0;
 
   const notifyA = (err) => toast.error(err);
   const notifyB = (err) => toast.success(err);
@@ -28,7 +30,26 @@ const Home = () => {
     if (!token) {
       navigate("./signin");
     }
-    fetch("http://localhost:5000/allposts", {
+    // fetch("http://localhost:5000/allposts", {
+    //   headers: {
+    //     Authorization: "Bearer" + localStorage.getItem("jwt"),
+    //   },
+    // })
+    //   .then((res) => res.json())
+    //   .then((result) => {
+    //     console.log(result);
+    //     setData(result);
+    //   })
+    //   .catch((err) => console.log(err));
+    fetchPost();
+    window.addEventListener("scroll", handlePost);
+    return () => {
+      window.removeEventListener("scroll", handlePost);
+    };
+  }, []);
+
+  const fetchPost = () => {
+    fetch(`http://localhost:5000/allposts?limit=${limit}`, {
       headers: {
         Authorization: "Bearer" + localStorage.getItem("jwt"),
       },
@@ -39,7 +60,17 @@ const Home = () => {
         setData(result);
       })
       .catch((err) => console.log(err));
-  }, []);
+  };
+
+  const handlePost = () => {
+    if (
+      document.documentElement.clientHeight + window.pageYOffset >=
+      document.documentElement.scrollHeight
+    ) {
+      limit = limit + 10;
+      fetchPost();
+    }
+  };
 
   const likePost = (id) => {
     fetch("http://localhost:5000/like", {
@@ -124,47 +155,11 @@ const Home = () => {
     setGridView(!gridView);
   };
 
-  // const [searchQuery, setSearchQuery] = useState("");
-  // const [searchResult, setSearchResult] = useState([]);
-
-  // const handleInputSearch = (e) => {
-  //   setSearchQuery(e.target.value);
-  // };
-
-  // const handleSearch = async () => {
-  //   try {
-  //     const response = await fetch(`/search-users?query=${searchQuery}`);
-  //     if (!response.ok) {
-  //       throw new Error(`HTTP error! Status: ${response.status}`);
-  //     }
-  //     const data = await response.json();
-  //     setSearchResult(data);
-  //     // console.log(data);
-  //   } catch (error) {
-  //     console.error("Error:", error.message);
-  //   }
-  // };
-
   return (
     <div className={gridView ? "home grid-view" : "home"}>
       <button className="grid-btn" onClick={toggleView}>
         {gridView ? <RxGrid /> : <MdCheckBoxOutlineBlank />}
       </button>
-      {/* <div>
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={handleInputSearch}
-          placeholder="Search users by name"
-        />
-        <button onClick={handleSearch}>Search</button>
-        <ul>
-          {searchResult.map((user) => (
-            <li key={user._id}>{user.name}</li>
-          ))}
-        </ul>
-      </div> */}
-      {/* {savedPost ? <div>} */}
       {data.map((posts) => {
         return (
           <div className={gridView ? "card" : "card grid-card"}>
@@ -181,10 +176,6 @@ const Home = () => {
               <div className="card-header">
                 <div className="like-comment">
                   <div className="card-pic">
-                    {/* <img
-                      src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?q=80&w=1966&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                      alt=""
-                      /> */}
                     <img
                       src={
                         posts.postedBy.Photo ? posts.postedBy.Photo : picLink
@@ -231,12 +222,7 @@ const Home = () => {
                         favorite
                       </span>
                     )}
-                    {/* <span
-                  id="like-on-center"
-                  className="material-symbols-outlined material-symbols-outlined-red"
-                >
-                  favorite
-                </span> */}
+
                     <MdOutlineModeComment
                       id="message"
                       onClick={() => {
@@ -302,38 +288,18 @@ const Home = () => {
                     alt=""
                   />
                 </div>
-                <h5 style={{ color: "#000" }}>{item.postedBy.name}</h5>
+                <h5 style={{ color: "#000" }}>
+                  {" "}
+                  <Link
+                    to={`/profile/${item.postedBy._id}`}
+                    style={{ color: "#000" }}
+                  >
+                    {" "}
+                    {item.postedBy.name}
+                  </Link>
+                </h5>
               </div>
-              {/* <div className="comment-section">
-                
-                {item.comments.map((comment) => {
-                  return (
-                    <p className="add-comment">
-                      <div className="card-pic">
-                        <img
-                          src={
-                            comment.postedBy.Photo
-                              ? comment.postedBy.Photo
-                              : picLink
-                          }
-                          alt=""
-                        />
-                      </div>
-                      <Link
-                        to={`/profile/${comment.postedBy._id}`}
-                        className="user-comment"
-                        style={{ fontWeight: "bolder", margin: "5px" }}
-                      >
-                        {comment.postedBy.name}
-                      </Link>
 
-                      <span className="user-comment-text">
-                        {comment.comment}
-                      </span>
-                    </p>
-                  );
-                })}
-              </div> */}
               <div className="comment-section">
                 {item.comments.length === 0 ? (
                   <p
@@ -386,7 +352,7 @@ const Home = () => {
 
               <div className="card-content">
                 <p id="like">{item.likes.length} likes</p>
-                <p>{item.body}</p>
+                <p id="caption">{item.body}</p>
               </div>
               <div className="add-comment">
                 <span className="material-symbols-outlined">mood</span>
@@ -427,3 +393,92 @@ const Home = () => {
   );
 };
 export default Home;
+
+{
+  /* <span
+                  id="like-on-center"
+                  className="material-symbols-outlined material-symbols-outlined-red"
+                >
+                  favorite
+                </span> */
+}
+{
+  /* <div>
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={handleInputSearch}
+          placeholder="Search users by name"
+        />
+        <button onClick={handleSearch}>Search</button>
+        <ul>
+          {searchResult.map((user) => (
+            <li key={user._id}>{user.name}</li>
+          ))}
+        </ul>
+      </div> */
+}
+{
+  /* {savedPost ? <div>} */
+}
+
+{
+  /* <img
+                      src="https://images.unsplash.com/photo-1499996860823-5214fcc65f8f?q=80&w=1966&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                      alt=""
+                      /> */
+}
+
+{
+  /* <div className="comment-section">
+                
+                {item.comments.map((comment) => {
+                  return (
+                    <p className="add-comment">
+                      <div className="card-pic">
+                        <img
+                          src={
+                            comment.postedBy.Photo
+                              ? comment.postedBy.Photo
+                              : picLink
+                          }
+                          alt=""
+                        />
+                      </div>
+                      <Link
+                        to={`/profile/${comment.postedBy._id}`}
+                        className="user-comment"
+                        style={{ fontWeight: "bolder", margin: "5px" }}
+                      >
+                        {comment.postedBy.name}
+                      </Link>
+
+                      <span className="user-comment-text">
+                        {comment.comment}
+                      </span>
+                    </p>
+                  );
+                })}
+              </div> */
+}
+
+// const [searchQuery, setSearchQuery] = useState("");
+// const [searchResult, setSearchResult] = useState([]);
+
+// const handleInputSearch = (e) => {
+//   setSearchQuery(e.target.value);
+// };
+
+// const handleSearch = async () => {
+//   try {
+//     const response = await fetch(`/search-users?query=${searchQuery}`);
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! Status: ${response.status}`);
+//     }
+//     const data = await response.json();
+//     setSearchResult(data);
+//     // console.log(data);
+//   } catch (error) {
+//     console.error("Error:", error.message);
+//   }
+// };

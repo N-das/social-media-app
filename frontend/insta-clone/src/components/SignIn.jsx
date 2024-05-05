@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import logo from "../images/Logo.png";
+import logo from "../images/Brand.png";
 import "../style/Signup.css";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -91,9 +91,13 @@ const SignIn = () => {
             <div>
               <p>
                 Forget password ?{" "}
-                <a href="#" style={{ fontSize: "1rem", color: "#1773EA" }}>
+                <Link
+                  to="/forget-password"
+                  style={{ fontSize: "1rem", color: "#1773EA" }}
+                >
                   click here
-                </a>
+                </Link>
+                <a href="#" style={{ fontSize: "1rem", color: "#1773EA" }}></a>
               </p>
             </div>
           </div>
